@@ -16,7 +16,7 @@ body {
 
 .glass-container {
     width: 300px;
-    height: 350px;
+    height: 325px;
     position: relative;
     z-index: 1;
     background: rgba(255, 255, 255, 0.1);
@@ -26,7 +26,7 @@ body {
 }
 .big-glass-container{
     width: 300px;
-    height: 375px;
+    height: 400px;
     position: relative;
     z-index: 1;
     background: rgba(255, 255, 255, 0.1);
@@ -35,6 +35,26 @@ body {
     border: 1px solid #000; 
 }
 .big-glass-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: -1;
+}
+.small-glass-container{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #000; 
+}
+.small-glass-container::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -135,6 +155,11 @@ p {
 }
 
 #register {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+#login {
     text-decoration: none;
     color: #000;
     font-weight: bold;
