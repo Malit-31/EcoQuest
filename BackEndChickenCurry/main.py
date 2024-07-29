@@ -8,6 +8,7 @@ from flask_cors import CORS
 userdataPath = "freddyFazbear.json"
 app = Flask(__name__)
 CORS(app)
+
 @app.route('/savedata', methods=['POST'])
 def saveData(): # {"name": {"password":<password>}}
     send = request.get_json()
@@ -17,6 +18,7 @@ def saveData(): # {"name": {"password":<password>}}
     with open(userdataPath, 'w') as f:
         json.dump(filedata, f)
     return jsonify({"status":"posted"}) 
+
 @app.route('/login', methods=['GET'])
 def login():
     result = request.args.get('total').split(",")  # "name,password"
@@ -28,6 +30,7 @@ def login():
             return jsonify({"status":"success"})
         return jsonify({"status":"wrong password"})
     return jsonify({"status":"wrong username"})
+
 if __name__ == "__main__":
     app.run()
 
