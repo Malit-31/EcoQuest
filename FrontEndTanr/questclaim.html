@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest System</title>
+    <style>
+        /* Add some basic styling here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quest System</h1>
+    <p>Claim quests and earn points:</p>
+
+    <!-- Quests -->
+    <div class="quest">
+        <h2>Quest 1: Be Sigma</h2>
+        <button onclick="claimQuest(1)">Claim Quest</button>
+    </div>
+
+    <div class="quest">
+        <h2>Quest 2: Start Mewing</h2>
+        <button onclick="claimquest(2)">Claim Quest</button>
+    </div>
+
+    <!-- Points display -->
+    <p>Total Points: <span id="points">0</span></p>
+    <button onclick="resetPoints()">Reset Points</button>
+
+    <script>
+        let totalPoints = 0;
+
+        function claimQuest(questId) {
+            // Simulate quest completion (you'd need backend logic here)
+            const pointsEarned = 40; // Example points per quest
+
+        
+            // Update total points
+            totalPoints += pointsEarned;
+            document.getElementById('points').textContent = totalPoints;
+        }
+        function claimquest(questId) {
+            // Simulate quest completion (you'd need backend logic here)
+            const pointsEarned = 30; // Example points per quest
+            
+        
+            // Update total points
+            totalPoints += pointsEarned;
+            document.getElementById('points').textContent = totalPoints;
+        }
+        function resetPoints() {
+            // Reset points to zero
+            totalPoints = 0;
+            document.getElementById('points').textContent = totalPoints;
+        }
+    </script>
+</body>
+</html>

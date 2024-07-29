@@ -132,7 +132,7 @@ input:focus {
     margin-left: auto;
 }
 
-button {
+#button {
     background: #fff;
     color: black;
     padding: 10px;
@@ -142,7 +142,7 @@ button {
     margin-top: 15px;
 }
 
-button:hover {
+#button:hover {
     background: transparent;
     color: black;
     outline: 1px solid #000;
