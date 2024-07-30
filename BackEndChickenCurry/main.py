@@ -26,7 +26,6 @@ def login():
         data = json.load(file)
     if result[0] in data:
         if result[1] == data[result[0]]['password']:
-            print("har har har har har har har har har har har har")
             return jsonify({"status":"success"})
         return jsonify({"status":"wrong password"})
     return jsonify({"status":"wrong username"})
