@@ -1,64 +1,76 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Center the content horizontally */
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Adjust as needed */
+            background-color: white;
+        }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+        /* Style the dropdown button and content */
+        .dropdown {
+            position: relative;
+        }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
 
-.dropdown-content a:hover {background-color: #ddd;}
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
-.dropdown:hover .dropdown-content {display: block;}
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-</style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
-<div class="profilepage">
-    <body style="background-color:white;">
+<body>
+    <div class="centered-content">
         <h1>Profile Page</h1>
         <h3>Username: </h3>
         <h3>Password: </h3>
         <h3>Total Points: </h3>
-        
-        
+
         <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
-          <div class="dropdown-content">
-            <a href="questclaim.html">Quests</a>
-            <a href="share.html">Share</a>
-          
-          </div>
-</div>
-
-
-
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a href="questclaim.html">Quests</a>
+                <a href="share.html">Share</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
