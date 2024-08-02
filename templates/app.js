@@ -14,11 +14,3 @@ function myFunction(){
     }
  }
 
- function mFunction{
-    if (document.getElementById("username").value!=="" && document.getElementById("password").value!=="") {
-        window.location.href="questclaim.html"
-    }
-    else{
-        alert("Please fill out all fields")
-    }
- }
