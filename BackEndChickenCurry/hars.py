@@ -14,8 +14,8 @@ adding account test
 url = "http://127.0.0.1:5000/savedata"
 
 data = {
-    "ligma": {
-        "password": "666"
+    "liga": {
+        "password": "66"
     }
 }
 
@@ -23,3 +23,14 @@ response = requests.post(url, headers={"Content-Type": "application/json"}, json
 
 print("Response Code:", response.status_code)
 print("Response Body:", response.json())
+
+
+url = "http://127.0.0.1:5000/addpoints"
+data = {
+    "username": "ligma",
+    "points": 10
+}
+response = requests.post(url, headers={"Content-Type": "application/json"}, json=data)
+
+# print("Response Code:", response.status_code)
+# print("Response Body:", response.json())
