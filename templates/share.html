@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+        .header {
+            background-color: #6200ea;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .share-text {
+            margin-right: 10px;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .share-button {
+            color: #6200ea;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .share-button:hover {
+            color: #3700b3;
+        }
+        .copy-icon {
+            color: #6200ea;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .copy-icon:hover {
+            color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Share Your Points</h1>
+            <a href="profile.html" style="color: white; font-size: 20px;">Profile</a>
+        </div>
+        <div class="content">
+            <p id="shareText" class="share-text">I have x points by helping the environment and so can you by going to EcoQuest.com!</p>
+            <i class="fas fa-copy copy-icon" onclick="copyText()" title="Copy Text"></i>
+        </div>
+        <div class="share-buttons">
+            <a href="https://discord.com/channels/@me" class="share-button" title="Share on Discord" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=I%20got%20x%20points%20by%20helping%20the%20environment%20and%20so%20can%20you%20by%20going%20to%20EcoQuest.com!" class="share-button" title="Share on Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="share-button" title="Share on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+    </div>
+    <script>
+        function copyText() {
+            const text = document.getElementById('shareText').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Text copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

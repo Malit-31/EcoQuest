@@ -3,60 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quest System</title>
+    <title>Quest Claim System</title>
     <style>
-        /* Add some basic styling here */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .quest-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .quest-description {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .quest-points {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .total-points {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .claim-button, .home-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        .claim-button:hover, .home-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <a href="profile.html">Profile</a>
-    <h2>Quest System</h2>
-    <p>Claim quests and earn points:</p>
-
-    <!-- Quests -->
-    <div class="quest">
-        <h2>Quest 1: Be Sigma</h2>
-        <button onclick="claimQuest(1)">Claim Quest</button>
+    <div class="container">
+        <div class="total-points" id="total-points">Total Points: 0</div>
+        <div class="quest-title" id="quest-title">Quest Title</div>
+        <div class="quest-description" id="quest-description">Description of the quest goes here.</div>
+        <div class="quest-points" id="quest-points">Points: 0</div>
+        <button class="claim-button" onclick="claimQuest()">Claim Quest</button>
+        <button class="claim-button" onclick="generateQuest()">Get New Quest</button>
+        <button class="home-button" onclick="goHome()">Profile</button>
     </div>
-
-    <div class="quest">
-        <h2>Quest 2: Start Mewing</h2>
-        <button onclick="claimquest(2)">Claim Quest</button>
-    </div>
-
-    <!-- Points display -->
-    <p>Total Points: <span id="points">0</span></p>
-    <button onclick="resetPoints()">Reset Points</button>
 
     <script>
         let totalPoints = 0;
+        let currentQuest = null;
 
-        function claimQuest(questId) {
-            // Simulate quest completion (you'd need backend logic here)
-            const pointsEarned = 40; // Example points per quest
+        const quests = [
+            { title: "rohen", description: "portal m1", points: 50 },
+            { title: "tanr", description: "dough", points: 30 },
+            { title: "sharma", description: "dragon deez nuts", points: 100 }
+        ];
 
-        
-            // Update total points
-            totalPoints += pointsEarned;
-            document.getElementById('points').textContent = totalPoints;
+        function getRandomQuest() {
+            return quests[Math.floor(Math.random() * quests.length)];
         }
-        function claimquest(questId) {
-            // Simulate quest completion (you'd need backend logic here)
-            const pointsEarned = 30; // Example points per quest
-            
-        
-            // Update total points
-            totalPoints += pointsEarned;
-            document.getElementById('points').textContent = totalPoints;
+
+        function generateQuest() {
+            currentQuest = getRandomQuest();
+            document.getElementById('quest-title').innerText = currentQuest.title;
+            document.getElementById('quest-description').innerText = currentQuest.description;
+            document.getElementById('quest-points').innerText = `Points: ${currentQuest.points}`;
         }
-        function resetPoints() {
-            // Reset points to zero
-            totalPoints = 0;
-            document.getElementById('points').textContent = totalPoints;
+
+        function claimQuest() {
+            if (currentQuest) {
+                totalPoints += currentQuest.points;
+                document.getElementById('total-points').innerText = `Total Points: ${totalPoints}`;
+                generateQuest(); // Load a new quest after claiming the current one
+            } else {
+                alert('No quest available to claim. Please get a new quest first.');
+            }
         }
+
+        function goHome() {
+            window.location.href = 'profile.html'; // Change 'index.html' to the URL of your home page
+        }
+
+        // Initial quest load
+        generateQuest();
     </script>
 </body>
 </html>
