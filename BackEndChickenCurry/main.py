@@ -38,6 +38,3 @@ def login():
 
 if __name__ == "__main__":
     app.run()
-
-#freddy fazbear's pizzaria har har har har har har har har har
-#freddy fazbear's pizzaria har har har har har har har har har    

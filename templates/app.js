@@ -1,16 +1,20 @@
-function myFunction(){
-    fetch("http://127.0.0.1:5000/savedata", {
-        method:"POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({"password":69420,"username":"harharhar"})
-     }).then(response => response.json()).then(data => {
-         //do tanning with data
-     })
-    if (document.getElementById("username").value!=="" && document.getElementById("password").value!=="") {
-        window.location.href="questclaim.html"
-    }
-    else{
-        alert("Please fill out all fields")
-    }
- }
+function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
+    if (username !== "" && password !== "") {
+        fetch("users.json")
+            .then(response => response.json())
+            .then(users => {
+                const user = users.find(user => user.username === username && user.password === password);
+                if (user) {
+                    window.location.href = "questclaim.html";
+                } else {
+                    alert("wrong username and password");
+                }
+            })
+            .catch(error => console.error('Error fetching users:', error));
+    } else {
+        alert("Please fill out all fields");
+    }
+}
