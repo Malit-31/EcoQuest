@@ -20,7 +20,7 @@ def saveData():
     filedata.update(send)
     with open(userdataPath, 'w') as f:
         json.dump(filedata, f)
-    return jsonify({"status": "posted"}) 
+    return jsonify({"status": "posted"}) ,200
 
 
 @app.route('/login', methods=['GET'])
@@ -30,9 +30,9 @@ def login():
         data = json.load(file)
     if result[0] in data:
         if result[1] == data[result[0]]['password']:
-            return jsonify({"status":"success"})
+            return jsonify({"status":"success"}) ,200
         return jsonify({"status":"wrong password"})
-    return jsonify({"status":"wrong username"})
+    return jsonify({"status":"wrong username"}) 
 
 @app.route('/addpoints', methods=['POST'])
 def add_points():
