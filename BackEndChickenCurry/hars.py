@@ -11,26 +11,40 @@ logging in account test
 '''
 adding account test
 '''
-url = "http://127.0.0.1:5000/savedata"
+# url = "http://127.0.0.1:5000/savedata"
 
-data = {
-    "liga": {
-        "password": "66"
-    }
-}
+# data = {
+#     "liga": {
+#         "password": "66"
+#     }
+# }
 
-response = requests.post(url, headers={"Content-Type": "application/json"}, json=data)
-
-print("Response Code:", response.status_code)
-print("Response Body:", response.json())
-
-
-url = "http://127.0.0.1:5000/addpoints"
-data = {
-    "username": "ligma",
-    "points": 10
-}
-response = requests.post(url, headers={"Content-Type": "application/json"}, json=data)
+# response = requests.post(url, headers={"Content-Type": "application/json"}, json=data)
 
 # print("Response Code:", response.status_code)
 # print("Response Body:", response.json())
+
+'''
+adding points
+'''
+# url = "http://127.0.0.1:5000/addpoints"
+# data = {
+#     "username": "ligma",
+#     "points": 10
+# }
+# response = requests.post(url, headers={"Content-Type": "application/json"}, json=data)
+
+# print("Response Code:", response.status_code)
+# print("Response Body:", response.json())
+
+'''
+getting points
+'''
+url = "http://127.0.0.1:5000/getpoints"
+params = {
+    "username": "ligma"
+}
+response = requests.get(url, params=params)
+
+print("Response Code:", response.status_code)
+print("Response Body:", response.json())
