@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var textField1 = document.getElementById("textField1").value;
+            var textField2 = document.getElementById("textField2").value;
+
+            if (textField1 !== "" && textField2 !== "") {
+                document.getElementById("submitButton").disabled = false;
+            } else {
+                document.getElementById("submitButton").disabled = true;
+            }
+        }
+
+        function redirectToLink() {
+            window.location.href = "https://example.com";
+        }
+    </script>
+</head>
+<body>
+    <form oninput="validateForm()">
+        <label for="textField1">Text Field 1:</label>
+        <input type="text" id="textField1" name="textField1"><br><br>
+        <label for="textField2">Text Field 2:</label>
+        <input type="text" id="textField2" name="textField2"><br><br>
+        <button type="button" id="submitButton" disabled onclick="redirectToLink()">Submit</button>
+    </form>
+</body>
+</html>
