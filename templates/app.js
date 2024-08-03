@@ -3,7 +3,7 @@ function login() {
     const password = document.getElementById("password").value;
 
     if (username !== "" && password !== "") {
-        fetch("users.json")
+        fetch("http://127.0.0.1:5000/savedata")
             .then(response => response.json())
             .then(users => {
                 const user = users.find(user => user.username === username && user.password === password);
@@ -17,4 +17,7 @@ function login() {
     } else {
         alert("Please fill out all fields");
     }
+}
+function createacc(){
+    
 }
